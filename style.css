@@ -1,0 +1,304 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+background:#0a0f2c;
+color:white;
+font-family:'Playfair Display',serif;
+text-align:center;
+overflow:hidden;
+}
+
+.screen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.hidden{display:none;}
+
+#bgCanvas{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+}
+
+input, button{
+padding:10px;
+margin:10px;
+border-radius:20px;
+border:none;
+}
+
+button{
+background:#ffd700;
+font-weight:bold;
+cursor:pointer;
+}
+
+input[type="range"]{
+width:250px;
+}
+
+.birthday-text{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-top:30px;
+animation:glow 2s infinite alternate;
+}
+
+.birthday-text::before{
+content:"";
+position:absolute;
+top:20%;
+left:50%;
+transform:translateX(-50%);
+width:300px;
+height:300px;
+background:radial-gradient(circle,
+rgba(255,255,255,0.2),
+transparent 70%);
+filter:blur(60px);
+z-index:-1;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px #ffd700;}
+to{text-shadow:0 0 30px #ffffff;}
+}
+
+.gallery{
+margin-top:30px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.gallery img{
+width:200px;
+height:250px;
+object-fit:cover;
+margin:15px;
+border-radius:25px;
+animation:photoPulse 3s ease-in-out infinite;
+transition:transform 0.4s ease;
+}
+
+/* Heartbeat glow */
+@keyframes photoPulse{
+0%{
+box-shadow:0 0 10px rgba(0,150,255,0.3);
+}
+50%{
+box-shadow:0 0 30px rgba(0,150,255,0.9);
+}
+100%{
+box-shadow:0 0 10px rgba(0,150,255,0.3);
+}
+}
+
+/* Hover zoom still works */
+
+.gallery img:hover{
+transform:translateY(-10px) scale(1.05);
+transition:0.4s ease;
+}
+
+.loveBtn{
+background:#ff4da6;
+color:white;
+margin-top:30px;
+}
+
+.holdWrapper{
+position:relative;
+width:150px;
+height:150px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.centerHoldBtn{
+position:absolute;
+width:90px;
+height:90px;
+border-radius:50%;
+background:#ff4da6;
+color:white;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+svg{
+position:absolute;
+top:0;
+left:0;
+}
+
+@media(max-width:768px){
+.gallery img{width:150px;height:200px;}
+.birthday-text{font-size:2rem;}
+}
+#bigMessage h2{
+font-family:'Great Vibes', cursive;
+font-size:2rem;
+line-height:1.6;
+opacity:0;
+animation:fadeIn 1s forwards;
+}
+
+#bigMessage button{
+margin-top:30px;
+}
+
+.fadeSlow{
+animation:fadeSlow 3s forwards;
+}
+
+@keyframes fadeSlow{
+from{opacity:0;}
+to{opacity:1;}
+}
+/* LONG MESSAGE FONT */
+#bigMessage h2{
+font-family:'Parisienne', cursive;
+font-size:2.2rem;
+line-height:1.7;
+}
+
+/* FAKE REVEAL FONT */
+#fakeScreen h2{
+font-family:'Cinzel', serif;
+letter-spacing:2px;
+}
+
+/* DROP DOWN FINAL TEXT */
+.dropLine{
+opacity:0;
+transform:translateY(-40px);
+animation:dropDown 1s forwards;
+}
+
+@keyframes dropDown{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* PHOTO ENTER ANIMATION */
+.photoEnter{
+animation:photoIn 1.2s forwards;
+}
+
+@keyframes photoIn{
+from{
+opacity:0;
+transform:translateY(60px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+/* CAKE ANIMATION */
+#cakeScreen{
+background:#0a0f2c;
+}
+
+#cake{
+font-size:100px;
+cursor:pointer;
+transition:transform 0.5s;
+}
+
+#cake:active{
+transform:scale(0.8);
+}
+
+/* Pinterest Soft Glow Text */
+.birthday-text{
+font-family:'Dancing Script',cursive;
+font-size:3.5rem;
+margin-top:40px;
+color:white;
+text-shadow:
+0 0 10px rgba(255,255,255,0.6),
+0 0 20px rgba(255,255,255,0.4),
+0 0 40px rgba(100,150,255,0.5);
+animation:floatText 6s ease-in-out infinite;
+}
+
+/* Gentle floating */
+@keyframes floatText{
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+}
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,
+rgba(255,255,255,0.05),
+transparent 60%);
+pointer-events:none;
+z-index:0;
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px){
+
+  .birthday-text{
+    font-size: 1.6rem;
+    line-height: 1.2;
+    padding: 0 15px;
+  }
+
+}
+
+@media (max-width: 768px){
+
+  .gallery img{
+    width: 130px;
+    height: 170px;
+    margin: 8px;
+  }
+
+}
+
+.gallery{
+position:relative;
+margin-top:30px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+z-index:1;
+}
+
+/* Soft glow background behind photos */
+.gallery::before{
+content:"";
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+width:90%;
+height:120%;
+background:radial-gradient(circle,
+rgba(100,150,255,0.15),
+transparent 70%);
+filter:blur(60px);
+z-index:-1;
+}

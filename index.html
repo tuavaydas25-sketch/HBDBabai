@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<title>For My Babai 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<audio id="bgMusic" src="assets/music.mp3" loop></audio>
+
+<canvas id="bgCanvas"></canvas>
+
+<!-- PASSWORD -->
+<div id="passwordScreen" class="screen">
+<h2>Only Babai Can Unlock This 💙</h2>
+<input type="password" id="passwordInput" placeholder="Enter Secret Password">
+<button onclick="checkPassword()">Unlock</button>
+</div>
+
+<!-- STAR GAME -->
+<div id="starGame" class="screen hidden">
+<h2>Catch 5 Moving Stars ⭐</h2>
+<p id="starCount">0 / 5</p>
+</div>
+
+<!-- LOVE SLIDER -->
+<div id="loveMeter" class="screen hidden">
+<h2>How much do you love me? 💖</h2>
+<input type="range" id="loveSlider" min="0" max="100" value="0">
+<p id="loveValue">0%</p>
+</div>
+
+<!-- HOLD CIRCLE -->
+<div id="holdScreen" class="screen hidden">
+<h2>Hold the circle for 5 seconds ⏳</h2>
+
+<div class="holdWrapper">
+<svg width="150" height="150">
+<circle cx="75" cy="75" r="65" stroke="#333" stroke-width="10" fill="none"/>
+<circle id="progressCircle"
+cx="75" cy="75" r="65"
+stroke="#ffd700"
+stroke-width="10"
+fill="none"
+stroke-dasharray="408"
+stroke-dashoffset="408"
+transform="rotate(-90 75 75)"/>
+</svg>
+<button id="holdBtn" class="centerHoldBtn">Hold 💙</button>
+</div>
+
+<p id="holdStatus"></p>
+</div>
+
+<!-- QUESTIONS -->
+<div id="questionScreen" class="screen hidden">
+<h2 id="questionText"></h2>
+<input type="text" id="answerInput" placeholder="Type your answer">
+<button onclick="nextQuestion()">Next 💙</button>
+</div>
+
+<!-- FINAL CONTENT -->
+<div id="mainContent" class="hidden">
+<h1 class="birthday-text">Happy Birthday My Beautiful Babai 💙</h1>
+
+
+<div class="gallery">
+<img src="images/photo1.jpg">
+<img src="images/photo2.jpg">
+<img src="images/photo3.jpg">
+</div>
+
+<button onclick="loveExplosion()" class="loveBtn">
+I Love You Babai 💖
+</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
